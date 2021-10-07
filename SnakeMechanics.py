@@ -2,6 +2,7 @@ from SnakeObjects import *
 import random
 import os
 import copy
+import sys
 
 
 def type_text(text, x, y, font_size, color, screen):
@@ -31,58 +32,62 @@ def game(screen, snake, fps_number, width, height, game_state, food):
 
     while True:
         clock.tick(fps_number)
-        for event in pg.event.get():
-            if event.type == pg.QUIT:
-                pg.quit()
-                quit()
-            if event.type == pg.KEYDOWN:
-                if event.key == pg.K_SPACE:
-                    if game_state == "menu":
-                        game_state = "game"
-                    if game_state == "game_over":
-                        food = Food(random.randint(10, width - 10), random.randint(50, height - 10))
-                        dx = 0
-                        dy = 0
-                        game_state = "game"
-                elif event.key == pg.K_UP:
-                    if game_state == "game":
-                        if down is False:
-                            dy = -4
+        if game_state != "quit":
+            for event in pg.event.get():
+                if event.type == pg.KEYDOWN:
+                    if event.key == pg.K_SPACE:
+                        if game_state == "menu":
+                            game_state = "game"
+                        if game_state == "game_over":
+                            food = Food(random.randint(10, width - 10), random.randint(50, height - 10))
                             dx = 0
-                            up = True
-                            down = False
-                            right = False
-                            left = False
-                elif event.key == pg.K_DOWN:
-                    if game_state == "game":
-                        if up is False:
-                            dy = 4
-                            dx = 0
-                            up = False
-                            down = True
-                            right = False
-                            left = False
-                elif event.key == pg.K_RIGHT:
-                    if game_state == "game":
-                        if left is False:
-                            dx = 4
                             dy = 0
-                            up = False
-                            down = False
-                            right = True
-                            left = False
-                elif event.key == pg.K_LEFT:
-                    if game_state == "game":
-                        if right is False:
-                            dx = -4
-                            dy = 0
-                            up = False
-                            down = False
-                            right = False
-                            left = True
+                            snake = SnakeHead(100, 100, 10)
+                            game_state = "game"
+                    elif event.key == pg.K_UP:
+                        if game_state == "game":
+                            if down is False:
+                                dy = -4
+                                dx = 0
+                                up = True
+                                down = False
+                                right = False
+                                left = False
+                    elif event.key == pg.K_DOWN:
+                        if game_state == "game":
+                            if up is False:
+                                dy = 4
+                                dx = 0
+                                up = False
+                                down = True
+                                right = False
+                                left = False
+                    elif event.key == pg.K_RIGHT:
+                        if game_state == "game":
+                            if left is False:
+                                dx = 4
+                                dy = 0
+                                up = False
+                                down = False
+                                right = True
+                                left = False
+                    elif event.key == pg.K_LEFT:
+                        if game_state == "game":
+                            if right is False:
+                                dx = -4
+                                dy = 0
+                                up = False
+                                down = False
+                                right = False
+                                left = True
+                    elif event.key == pg.K_ESCAPE:
+                        game_state = "quit"
+                        pg.quit()
+                        sys.exit()
 
         if game_state == "menu":
-            screen.fill((0, 0, 0))
+            if game_state != "quit":
+                screen.fill((0, 0, 0))
             type_text("SNAKE", 100, 100, 50, (255, 255, 255), screen)
             type_text("Press space, to continue...", 70, 350, 20, (255, 255, 255), screen)
             logo = pg.image.load(os.path.join('snake.png'))
@@ -152,4 +157,5 @@ def game(screen, snake, fps_number, width, height, game_state, food):
             type_text("High score: " + str(high_score), 120, 240, 20, (255, 255, 255), screen)
             type_text("Press space, to try again...", 70, 350, 20, (255, 255, 255), screen)
 
-        pg.display.update()
+        if game_state != "quit":
+            pg.display.update()
