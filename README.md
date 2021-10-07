@@ -5,6 +5,7 @@ The main goal of the project was to get to know the *Pygame* library and learn o
 # Libraries:
 - *Pygame* - game engine (2.0.1),
 - *NumPy* - 8-bit object surfaces (1.21.2),
+- *Pyinstaller* -c onvert to executive file,
 - other built-in libraries, such as: os, math, copy.
 
 # Sample images from the game:
@@ -13,3 +14,8 @@ The main goal of the project was to get to know the *Pygame* library and learn o
   <img src="https://user-images.githubusercontent.com/91888660/136381419-8b679444-0aca-4422-9fd3-c656880ddaa4.png" width="241" />
   <img src="https://user-images.githubusercontent.com/91888660/136381417-64ce422b-7634-48eb-b692-c4492b4ae5a3.png" width="240"/>
 </p>
+
+# Do you want to check how the current state of the application works?
+- Download the zipped folder from the link: https://drive.google.com/drive/folders/1TscAjXSUoizq13Jztm9MW_SHlcWfDO0S?usp=sharing,
+- Run the file: `Snake\dist\main.exe`,
+- Submit feedback on the activity.
