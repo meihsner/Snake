@@ -6,7 +6,7 @@ The main goal of the project was to get to know the *Pygame* library and learn o
 - *Pygame* - game engine (2.0.1),
 - *NumPy* - 8-bit object surfaces (1.21.2),
 - *Pyinstaller* - convert program to executive file (4.5.1),
-- other built-in libraries, such as: os, math, copy.
+- other built-in libraries, such as: *os*, *math*, *copy*.
 
 # Sample images from the game:
 <p align="center">
