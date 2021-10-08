@@ -18,4 +18,4 @@ The main goal of the project was to get to know the *Pygame* library and learn o
 # Do you want to check how the current state of the application works?
 - Download the zipped folder from the link: https://drive.google.com/drive/folders/1TscAjXSUoizq13Jztm9MW_SHlcWfDO0S?usp=sharing,
 - Run the file: `Snake\dist\main.exe`,
-- Submit feedback on the activity.
+- Submit feedback.
